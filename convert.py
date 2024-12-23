@@ -50,7 +50,7 @@ def convert_dir(search_dir: Path):
             if is_audio_file(x):
                 audio_files.append(x)
 
-    convert_files(audio_files, out_dir)
+    convert_files(sorted(audio_files), out_dir)
 
 def main():
     search_dir = None
