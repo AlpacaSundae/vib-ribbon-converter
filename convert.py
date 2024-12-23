@@ -22,8 +22,8 @@ def convert_files(files: list[Path], out_dir: Path):
     with open(cue_file, "w") as f:
         for ii, file in enumerate(cue_output):
             f.writelines([
-                f"FILE \"{file.as_posix()}\" BINARY\n",
-                f"  TRACK ${ii:0>{2}} AUDIO\n",
+                f"FILE \"{file.name}\" BINARY\n",
+                f"  TRACK {(1+ii):0>{2}} AUDIO\n",
                 "    INDEX 01 00:00:00\n"
                 ])
 
