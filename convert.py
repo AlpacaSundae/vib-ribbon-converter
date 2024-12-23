@@ -14,7 +14,13 @@ def convert_files(files: list[Path], out_dir: Path):
 
         ffmpeg \
             .input(file.as_posix()) \
-            .output(out_file.as_posix(), format="wav", loglevel="quiet") \
+            .output(
+                out_file.as_posix(),
+                ar=44100,
+                format="s16le",
+                acodec="pcm_s16le",
+                loglevel="quiet"
+                ) \
             .run(overwrite_output=True)
         cue_output.append(out_file)
     
